@@ -1,0 +1,67 @@
+body {
+    font: normal 1em arial;
+    background-color: rgba(247, 162, 3, 0.979);
+}
+
+main {
+    background-color: rgb(255, 255, 255);
+    margin: auto;
+    width: 1000px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.267);
+}
+
+h1#tittle {
+    font-size: 2.5em;
+    background-color: rgba(150, 150, 150, 0.856);
+    border-radius: 10px 10px 0px 0px;
+    padding: 10px;
+    margin: -20px;
+    margin-bottom: 40px;
+}
+
+h1 > span {
+    font: bold 1.3em arial;
+    color: rgba(247, 162, 3, 0.979);
+}
+
+h2 {
+    text-decoration: underline;
+    font: bold 2em arial;
+    margin-bottom: 40px;
+}
+
+p.opt {
+    font: normal 1.3em arial;
+    margin: 20px;
+}
+
+select#selveic {
+    width: 170px;
+    height: 22px;
+}
+
+input#srch {
+    width: 130px;
+    height: 70px;
+    border-radius: 20px;
+    margin-top: 20px;
+    background-color: rgba(253, 167, 8, 0.871);
+    color: rgb(247, 247, 247);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.144);
+    font: normal 1.2em arial;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.253);
+}
+
+input#via {
+    margin: 10px 0px 10px 15px;
+}
+
+input#srch:hover {
+    background-color: rgba(218, 143, 6, 0.87);
+    color: rgb(216, 213, 213);
+    transition-duration: 0.1s;
+    cursor: pointer;
+}

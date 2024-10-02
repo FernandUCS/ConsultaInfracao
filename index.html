@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detran</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <h1 id="tittle"><span>D</span>etran-RS</h1>
+        <div id="res">
+            <h2>Bem-vindo(a)!</h2>
+            <p>Para fazer a simulação de penalidade, preencha os campos abaixo:</p>
+            <br>
+            <p class="opt">Nome: <input type="text" name="txtname" id="txtname"></p>
+            <p class="opt">Velocidade: <input type="number" name="num" id="num"> Km/h</p>
+            <p class="opt">
+                Veículo: 
+                <select name="selveic" id="selveic">
+                    <option value="carro">Carro</option>
+                    <option value="camio">Camioneta</option>
+                    <option value="moto">Motocicleta</option>
+                    <option value="otr">Outros</option>
+                </select>
+            </p>
+            <p>
+                <input type="radio" name="radvia" id="via"> Via Local
+                <input type="radio" name="radvia" id="via"> Via Coletora
+                <input type="radio" name="radvia" id="via"> Via Arterial
+                <input type="radio" name="radvia" id="via"> Via Rápida
+                <input type="radio" name="radvia" id="via"> Rodovia (Pista Simples)
+                <input type="radio" name="radvia" id="via"> Rodovia (Pista Dupla)
+            </p>
+            <input type="button" value="Buscar" onclick="verificar()" id="srch">
+        </div>
+    </main>
+
+    <script>
+        var nome = document.getElementById('txtname')
+        var velo = document.getElementById('num')
+
+        function verificar() {
+            if (nome.length == 0 || velo.value.length == 0) {
+                alert('Por favor, preencha os dados corretamente.')
+            } else {
+                var res = document.querySelector('div#res')
+                var vel = Number(velo.value)
+                var via = document.getElementsByName('radvia')
+                var limite = 0
+
+                var select = document.getElementById('selveic')
+                var veiculo = select.options[select.selectedIndex].value
+
+                if (via[0].checked) {
+                    limite = 30
+                } else if (via[1].checked) {
+                    limite = 40
+                }else if (via[2].checked) {
+                    limite = 60
+                }else if (via[3].checked) {
+                    limite = 80
+                } else if (via[4].checked) {
+                    if (veiculo == 'otr') {
+                        limite = 90
+                    } else {
+                        limite = 100
+                    }
+                }else if (via[5].checked) {
+                    if (veiculo == 'otr'){
+                        limite = 100
+                    }else {
+                        limite = 110
+                    }
+                } else {
+                    alert('Nenhuma via selecionada! Considerando Via Coletora.')
+                    limite = 40
+                }
+
+                res.innerHTML = `<p>Olá, ${nome.value}!</p>`
+                res.innerHTML += `<p>Sua velocidade era de ${vel}Km/h</p>`
+
+                if (vel < limite/2) {
+                    res.innerHTML += '<p>Você foi <strong>MULTADO</strong> por estar abaixo da velocidade mínima permitida.</p>'
+                }else if (vel > limite) {
+                    res.innerHTML += ('<p id="multa">Você foi <strong>MULTADO</strong> por excesso de velocidade.</p>')
+                }else {
+                    res.innerHTML += ('<p>Você está dentro do Código de Trânsito Brasileiro!</p>')
+                }
+
+                res.innerHTML += ('<p>Dirija sempre com cautela.</p>')
+                btnResearch()
+            }
+        }
+        function btnResearch() {
+            var resch = document.createElement('input')
+            resch.setAttribute('type', 'button')
+            resch.setAttribute('value', 'Nova Consulta')
+            resch.setAttribute('onclick', 'recarregar()')
+            res.appendChild(resch)
+            //Style:
+            resch.style.backgroundColor = 'rgba(253, 167, 8, 0.871)'
+            resch.style.color = 'rgb(247, 247, 247)'
+            resch.style.borderRadius = '20px'
+            resch.style.width = '100px'
+            resch.style.height = '40px'
+
+            return resch
+        }
+        function recarregar() {
+            location.reload()
+        }
+    </script>
+</body>
+</html>
