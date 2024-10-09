@@ -67,11 +67,14 @@ input#srch:hover {
 }
 
 div#rodape {
-    background-color: gray;
+    background-color: #D7D2D6;
     margin: auto;
-    width: 1000px;
+    width: 100%;
     text-align: center;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 10px;
+    border-radius: 10px 10px 0px 0px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.267);
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
