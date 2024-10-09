@@ -65,3 +65,13 @@ input#srch:hover {
     transition-duration: 0.1s;
     cursor: pointer;
 }
+
+div#rodape {
+    background-color: gray;
+    margin: auto;
+    width: 1000px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.267);
+}
